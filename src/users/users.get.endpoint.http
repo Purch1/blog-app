@@ -1,4 +1,6 @@
-GET http://localhost:3000/users
+GET http://localhost:3000/users/4456
+?limit=10
+&offset=20
 
 
 
@@ -6,4 +8,9 @@ GET http://localhost:3000/users
 POST http://localhost:3000/users
 Content-Type: application/json
 
-{}
+{
+    "firstname": "John",
+    "lastName": "Doe",
+    "email": "john@doe.com",
+    "password": "Password1"
+}
