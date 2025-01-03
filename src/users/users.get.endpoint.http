@@ -1,6 +1,5 @@
-GET http://localhost:3000/users/4456
-?limit=10
-&offset=20
+GET http://localhost:3000/users/54674
+
 
 
 
