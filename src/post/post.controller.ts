@@ -12,11 +12,11 @@ import {
 import { CreateUsersDto } from './dtos/create-user.dto';
 import { GetUsersParamsDto } from './dtos/get-users-params.dto';
 import { PatchUsersDto } from './dtos/patch-user.dto';
-import { UsersService } from './providers/users.service';
+import { PostsService } from './providers/posts.service';
 
 @Controller('users')
-export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+export class PostsController {
+  constructor(private readonly usersService: PostsService) {}
 
   @Get('/:id?')
   public getUsers(
