@@ -1,40 +1,26 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Param,
-  Query,
-  Body,
-  ParseIntPipe,
-  DefaultValuePipe,
-  Patch,
-} from '@nestjs/common';
-import { CreateUsersDto } from './dtos/create-user.dto';
-import { GetUsersParamsDto } from './dtos/get-users-params.dto';
-import { PatchUsersDto } from './dtos/patch-user.dto';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { PostsService } from './providers/posts.service';
+import { ApiTags } from '@nestjs/swagger';
+import { CreatePostDto } from './dtos/create-post.dto';
 
-@Controller('users')
+@Controller('posts')
+@ApiTags('Posts')
 export class PostsController {
-  constructor(private readonly usersService: PostsService) {}
+  constructor(private readonly postsService: PostsService) {}
 
-  @Get('/:id?')
-  public getUsers(
-    @Param() getUserParamsDto: GetUsersParamsDto | undefined,
-    @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: any,
-    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: any,
-  ) {
-    return this.usersService.findAll(getUserParamsDto, limit, page);
+  @Get('/:userId?')
+  public getPosts(@Param('userId') userId: string) {
+    return this.postsService.findAll(userId);
   }
 
   @Post()
-  public createUsers(@Body() createUsersDto: CreateUsersDto) {
-    console.log(createUsersDto instanceof CreateUsersDto);
+  public createposts(@Body() createPostsDto: CreatePostDto) {
+    console.log(createPostsDto instanceof CreatePostDto);
     return 'You sent a post request to users endpoint';
   }
 
-  @Patch()
-  public patchUser(@Body() patchUserDto: PatchUsersDto) {
-    return patchUserDto;
-  }
+  // @Patch()
+  // public patchUser(@Body() patchUserDto: PatchUsersDto) {
+  //   return patchUserDto;
+  // }
 }

@@ -1,9 +1,15 @@
-POST http://localhost:3000/users
+POST http://localhost:3000/posts
 Content-Type: application/json
 
 {
-    "firstname": "John",
-    "lastName": "Doe",
-    "email": "john@doe.com",
-    "password": "Password123#"
+    "title": "Introduction to Node.js",
+    "postType": "post",
+    "slug": "introduction-to-nodejs",
+    "status": "draft",
+    "content": "Node.js is a runtime for building server-side applications...",
+    "schema": "some-schema-data",
+    "featureImageUrl": "https://example.com/images/nodejs.jpg",
+    "publishOn": "2025-01-15T10:00:00Z",
+    "tags": ["Node.js", "JavaScript", "Backend"],
+    "metaOptions": ["SEO", "Performance"]
 }

@@ -1,31 +1,31 @@
 import { Injectable } from '@nestjs/common';
-import { GetPostsParamsDto } from '../dtos/get-posts-params.dto';
+import { UsersService } from 'src/users/providers/users.service';
 
 @Injectable()
 export class PostsService {
-  public findAll(
-    getUserParamsDto: GetPostsParamsDto,
-    limit: number,
-    page: number,
-  ) {
+  constructor(private readonly usersService: UsersService) {}
+
+  public findAll(userId: string) {
+    const user = this.usersService.findOneById(userId);
     return [
       {
-        firstName: 'John',
-        email: 'john@doe.com',
+        user: user,
+        title: 'Test Title ',
+        content: 'Test Content',
       },
-
       {
-        firstName: 'Prince',
-        email: 'Prince@doe.com',
+        user: user,
+        title: 'Test Title 2 ',
+        content: 'Test Content 2',
       },
     ];
   }
 
-  public findOneById(id: number) {
-    return {
-      id: 1234,
-      firstName: 'Prince',
-      email: 'Prince@doe.com',
-    };
-  }
+  // public findOneById(id: number) {
+  //   return {
+  //     id: 1234,
+  //     firstName: 'Prince',
+  //     email: 'Prince@doe.com',
+  //   };
+  // }
 }
