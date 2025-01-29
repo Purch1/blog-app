@@ -14,7 +14,7 @@ import {
   MaxLength,
 } from 'class-validator';
 import { PostType, PostStatus } from '../enums/postType.enums';
-import { CreatePostMethodOptionsDto } from './create-post-meta-options.dto';
+import { CreatePostMethodOptionsDto } from '../../meta-options/dtos/create-post-meta-options.dto';
 import { Type } from 'class-transformer';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 

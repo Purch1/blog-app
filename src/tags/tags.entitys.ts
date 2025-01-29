@@ -45,7 +45,7 @@ export class Tag {
     length: 1024,
     nullable: true,
   })
-  featuredImage: string;
+  featuredImageUrl: string;
 
   @CreateDateColumn()
   createDate: Date;
