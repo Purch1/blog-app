@@ -1,5 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { PostStatus, PostType, StatusType } from './enums/postType.enums';
+import { PostStatus, PostType } from './enums/postType.enums';
 import { CreatePostMethodOptionsDto } from './dtos/create-post-meta-options.dto';
 
 @Entity()
@@ -37,7 +37,7 @@ export class Post {
     nullable: false,
     default: PostStatus.DRAFT,
   })
-  status: StatusType;
+  status: PostStatus;
 
   @Column({
     type: 'text',
