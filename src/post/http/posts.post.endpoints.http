@@ -1,0 +1,19 @@
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+    "title": "Introduction to Node.js",
+    "postType": "post",
+    "slug": "introduction-to-nodejs",
+    "status": "draft",
+    "content": "Node.js is a runtime for building server-side applications...",
+    "schema": "{\"total\":27.5,\"reference\":\"25a8a80e9c1099a0e92c2ebe412bb7ad\"}",
+    "featureImageUrl": "https://example.com/images/nodejs.jpg",
+    "publishOn": "2025-01-15T10:00:00Z",
+    "tags": ["Node.js", "JavaScript", "Backend"],
+    "metaOptions": [
+        {
+            "key":"SEO", "value": 20
+        }
+            ]
+}
