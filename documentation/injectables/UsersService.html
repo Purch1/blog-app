@@ -126,6 +126,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Class to connect to Users table and perform business operations</p>
+
+            </p>
 
 
 
@@ -162,54 +169,6 @@
     </table>
 </section>
 
-            <section data-compodoc="block-constructor">
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/users/providers/users.service.ts:6</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>authService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
 
             <section data-compodoc="block-methods">
     
@@ -238,14 +197,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="11"
-                                    class="link-to-prism">src/users/providers/users.service.ts:11</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="18"
+                                    class="link-to-prism">src/users/providers/users.service.ts:18</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>The method to get all the users from the databse</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -331,14 +292,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="32"
-                                    class="link-to-prism">src/users/providers/users.service.ts:32</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="42"
+                                    class="link-to-prism">src/users/providers/users.service.ts:42</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Finding a user but the user Id</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -388,19 +351,26 @@
 import { GetUsersParamsDto } from &#x27;../dtos/get-users-params.dto&#x27;;
 import { AuthService } from &#x27;src/auth/providers/auth.service&#x27;;
 
+/**
+ * Class to connect to Users table and perform business operations
+ */
 @Injectable()
 export class UsersService {
-  constructor(
-    @Inject(forwardRef(() &#x3D;&gt; AuthService))
-    private readonly authService: AuthService,
-  ) {}
+  // constructor(
+  //   @Inject(forwardRef(() &#x3D;&gt; AuthService))
+  //   private readonly authService: AuthService,
+  // ) {}
+
+  /**
+   * The method to get all the users from the databse
+   */
   public findAll(
     getUserParamsDto: GetUsersParamsDto,
     limit: number,
     page: number,
   ) {
-    const isAuth &#x3D; this.authService.isAuth();
-    console.log(isAuth);
+    // const isAuth &#x3D; this.authService.isAuth();
+    // console.log(isAuth);
 
     return [
       {
@@ -415,6 +385,9 @@ export class UsersService {
     ];
   }
 
+  /**
+   * Finding a user but the user Id
+   */
   public findOneById(id: string) {
     return {
       id: 1234,

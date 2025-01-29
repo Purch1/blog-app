@@ -5,6 +5,9 @@ import { UsersService } from 'src/users/providers/users.service';
 export class PostsService {
   constructor(private readonly usersService: UsersService) {}
 
+  /**
+   * Finding all post from the database
+   */
   public findAll(userId: string) {
     const user = this.usersService.findOneById(userId);
     return [
