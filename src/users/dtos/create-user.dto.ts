@@ -13,7 +13,7 @@ export class CreateUsersDto {
   @IsNotEmpty()
   @MinLength(3)
   @MaxLength(96)
-  firstname: string;
+  firstName: string;
 
   @IsString()
   @IsOptional()
