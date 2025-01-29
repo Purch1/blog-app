@@ -11,8 +11,9 @@ import {
   IsUrl,
   IsISO8601,
   ValidateNested,
+  MaxLength,
 } from 'class-validator';
-import { PostType, StatusType } from '../enums/postType.enums';
+import { PostType, PostStatus } from '../enums/postType.enums';
 import { CreatePostMethodOptionsDto } from './create-post-meta-options.dto';
 import { Type } from 'class-transformer';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
@@ -25,6 +26,7 @@ export class CreatePostDto {
   @IsString()
   @IsNotEmpty()
   @MinLength(4)
+  @MaxLength(512)
   title: string;
 
   @ApiProperty({
@@ -41,6 +43,7 @@ export class CreatePostDto {
   })
   @IsString()
   @IsNotEmpty()
+  @MaxLength(256)
   @Matches(/^[a-z0-9-]+(?:-[a-z0-9]+)$/, {
     message:
       'ThA Slug should be all small letters and uses only "-" and without spaces. For example "my-url"',
@@ -51,9 +54,9 @@ export class CreatePostDto {
     example: 'postStatus',
     description: "Possible values, 'draft', 'scheduled', 'review', 'published'",
   })
-  @IsEnum(StatusType)
+  @IsEnum(PostStatus)
   @IsNotEmpty()
-  status: StatusType;
+  status: PostStatus;
 
   @ApiPropertyOptional({
     example: 'This is the content of post',
@@ -79,6 +82,7 @@ export class CreatePostDto {
   })
   @IsUrl()
   @IsOptional()
+  @MaxLength(1024)
   featureImageUrl?: string;
 
   @ApiPropertyOptional({

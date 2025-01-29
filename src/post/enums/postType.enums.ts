@@ -5,7 +5,7 @@ export enum PostType {
   SERIES = 'series',
 }
 
-export enum StatusType {
+export enum PostStatus {
   DRAFT = 'draft',
   SCHEDULED = 'schedule',
   REVIEW = 'review',
